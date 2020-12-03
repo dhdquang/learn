@@ -85,8 +85,80 @@
             </tbody>
         </table>
         <p>*<em><strong>Lưu &yacute;</strong></em>: truy vấn GraphQL tr&ocirc;ng giống nhau với c&aacute;c field
-            ri&ecirc;ng lẻ hay danh s&aacute;ch dựa v&agrave;o <strong><em>Schemas</em></strong>. Ch&uacute;ng ta sẽ
-            t&igrave;m hiểu về Schema ở những phần sau.</p>
+            ri&ecirc;ng lẻ hay danh s&aacute;ch dựa, tuy nhi&ecirc;n ch&uacute;ng t&ocirc;i biết mong đợi c&aacute;i
+            n&agrave;o dựa tr&ecirc;n những g&igrave; được chỉ ra trong <strong><em>Schemas</em></strong>. Ch&uacute;ng
+            ta sẽ t&igrave;m hiểu về Schema ở những phần sau.</p>
+        <p>&nbsp;</p>
+    </div>
+    <div class="gtx-body">&nbsp;</div>
+    <div class="gtx-body">
+        <h3>Arguments</h3>
+        <p>Trong GraphQL, mọi trường v&agrave; đối tượng lồng nhau đều c&oacute; thể nhận tập đối số của ri&ecirc;ng
+            n&oacute;, l&agrave;m cho GraphQL trở th&agrave;nh một sự thay thế ho&agrave;n to&agrave;n cho việc thực
+            hiện nhiều lần t&igrave;m nạp API.</p>
+        <table style="width: 100%; border-collapse: collapse; background-color: #f5f2f0;" border="1">
+            <tbody>
+                <tr>
+                    <td style="width: 440px;">
+                        <pre class="language-javascript"><code>{
+  human(id: "1000") {
+    name
+    height(unit: METER)
+  }
+}</code></pre>
+                    </td>
+                    <td style="width: 439px;">
+                        <pre class="language-markup"><code>{
+  "data": {
+    "human": {
+      "name": "Luke Skywalker",
+      "height": 1.72
+    }
+  }
+}</code></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>GraphQL đi k&egrave;m với một tập hợp c&aacute;c loại mặc định, nhưng m&aacute;y chủ GraphQL cũng c&oacute;
+            thể khai b&aacute;o c&aacute;c loại t&ugrave;y chỉnh của ri&ecirc;ng n&oacute;, miễn l&agrave; ch&uacute;ng
+            c&oacute; thể được chuyển th&agrave;nh định dạng của bạn.</p>
+        <p>&nbsp;</p>
+        <h3>Aliases</h3>
+        <p>Với aliases, ch&uacute;ng cho ph&eacute;p bạn đổi t&ecirc;n kết quả của một trường dữ liệu th&agrave;nh bất
+            kỳ thứ g&igrave; bạn muốn.</p>
+        <table style="width: 100%; border-collapse: collapse; background-color: #f5f2f0; height: 18px;" border="1">
+            <tbody>
+                <tr style="height: 18px;">
+                    <td style="width: 50%; height: 18px;">
+                        <pre class="language-javascript"><code>{
+  empireHero: hero(episode: EMPIRE) {
+    name
+  }
+  jediHero: hero(episode: JEDI) {
+    name
+  }
+}</code></pre>
+                    </td>
+                    <td style="width: 50%; height: 18px;">
+                        <pre class="language-javascript"><code>{
+  "data": {
+    "empireHero": {
+      "name": "Luke Skywalker"
+    },
+    "jediHero": {
+      "name": "R2-D2"
+    }
+  }
+}</code></pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>*<em><strong>Lưu &yacute;</strong></em>: Trong v&iacute; dụ tr&ecirc;n, hai trường dữ liệu "<em>hero"</em> sẽ
+            m&acirc;u thuẫn với nhau, nhưng v&igrave; ch&uacute;ng ta c&oacute; thể đặt b&iacute; danh ch&uacute;ng
+            th&agrave;nh c&aacute;c t&ecirc;n kh&aacute;c nhau, ch&uacute;ng ta c&oacute; thể nhận được cả hai kết quả
+            trong một y&ecirc;u cầu.</p>
         <p>&nbsp;</p>
     </div>
 </body>
