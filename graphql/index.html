@@ -6,31 +6,53 @@
 </head>
 
 <body>
-  <h1>Learning Graphql</h1>
-  <div>
-    <div class="row">
-      <p><strong>Phần 1: GraphQL l&agrave; g&igrave;?</strong></p>
-      <p>GraphQL l&agrave; một ng&ocirc;n ngữ truy vấn cho c&aacute;c API của bạn. GraphQL thường được coi l&agrave;
-        ng&ocirc;n ngữ t&igrave;m nạp dữ liệu theo khai b&aacute;o. Truy vấn GraphQL chỉ y&ecirc;u cầu những dữ liệu
-        n&oacute; cần, kh&ocirc;ng phải nhận những dữ liệu kh&ocirc;ng mong muốn như khi d&ugrave;ng Rest.</p>
-      <p>Nguy&ecirc;n nh&acirc;n c&oacute; GraphQL, xuất ph&aacute;t từ việc c&aacute;c kỹ sư của FaceBook thấy rằng
-        REST c&oacute; yếu điểm cố hữu l&agrave; với REST khi d&ugrave;ng với c&aacute;c ứng dụng mobile th&igrave; tốc
-        độ qu&aacute; chậm, dẫn đến việc cần nhiều enpoint để t&igrave;m nạp dữ liệu cần v&agrave; thừa ra c&aacute;c dữ
-        liệu kh&ocirc;ng mong muốn.</p>
-      <p>Giải ph&aacute;p cho vấn đề tr&ecirc;n đ&oacute; l&agrave; d&ugrave;ng 1 y&ecirc;u cầu v&agrave; c&oacute;
-        những dữ liệu m&agrave; ch&uacute;ng ta cần, h&igrave;nh dạng truy vấn khớp với h&igrave;nh dạng dữ liệu trả về.
-        Như h&igrave;nh sau:</p>
-      <p><img src="https://i.imgur.com/LXYXYRO.png" width="649" height="453" /></p>
-    </div>
-    <br />
-    <div class="row">
-      <p><strong>Phần 2: Ng&ocirc;n ngữ truy vấn GraphQL</strong></p>
-      <p><strong>GraphQL</strong> sử dụng <strong>Query</strong> để y&ecirc;u cầu dữ liệu, GraphQL kết hợp tất cả những
-        thay đổi dữ liệu <em>INSERT, UPDATE, or DELETE</em> th&agrave;nh một kiểu dữ liệu <strong>Mutation</strong>,
-        v&agrave; kiểu <strong>Subscription</strong> c&oacute; thể được sử dụng để lắng nghe c&aacute;c thay đổi dữ liệu
-        qua c&aacute;c kết nối socket. Xem x&eacute;t code sau:</p>
-      <p><img src="https://i.imgur.com/kt7NtsX.png" /></p>
-    </div>
+  <h2><strong>Giới thiệu về GraphQL</strong></h2>
+  <p style="text-align: justify;">GraphQL l&agrave; một ng&ocirc;n ngữ truy vấn cho API của bạn. Sử dụng hệ thống loại
+    m&agrave; bạn x&aacute;c định cho dữ liệu của m&igrave;nh. GraphQL kh&ocirc;ng bị r&agrave;ng buộc với bất kỳ cơ sở
+    dữ liệu hoặc c&ocirc;ng cụ lưu trữ cụ thể n&agrave;o v&agrave; thay v&agrave;o đ&oacute; được hỗ trợ bởi m&atilde;
+    v&agrave; dữ liệu hiện c&oacute; của bạn.</p>
+  <section class="Translator__pos-wrapper__2Bd1U" data-hook="translation-view.pos-section">
+    <section class="Translator__term-line__gW8FJ">
+      <div class="Translator__term__3UT78">Dịch vụ GraphQL được tạo ra bằng c&aacute;ch x&aacute;c định c&aacute;c kiểu
+        (type) v&agrave; trường (field) tr&ecirc;n c&aacute;c kiểu đ&oacute;, sau đ&oacute; cung cấp c&aacute;c
+        h&agrave;m cho từng trường tr&ecirc;n mỗi kiểu. V&iacute; dụ: một dịch vụ GraphQL cho ch&uacute;ng t&ocirc;i
+        biết người d&ugrave;ng đ&atilde; đăng nhập l&agrave; ai cũng như t&ecirc;n của người d&ugrave;ng đ&oacute;
+        c&oacute; thể tr&ocirc;ng giống như sau:</div>
+      <div class="Translator__term__3UT78">&nbsp;</div>
+    </section>
+  </section>
+  <div class="Translator__add-custom__2QhtK Button__btn__1lr0f" tabindex="0" data-hook="add-custom-term-btn">
+    <pre class="language-javascript"><code>type Query {
+  me: User
+}
+
+type User {
+  id: ID
+  name: String
+}</code></pre>
+    <p>C&ugrave;ng với c&aacute;c function cho từng trường tr&ecirc;n từng loại:</p>
+    <pre class="language-javascript"><code>function Query_me(request) {
+  return request.auth.user;
+}
+
+function User_name(user) {
+  return user.getName();
+}</code></pre>
+    <p>Truy vấn cho với v&iacute; dụ tr&ecirc;n ta sẽ c&oacute; code sau:</p>
+    <pre class="language-javascript"><code>{
+  me {
+    name
+  }
+}</code></pre>
+    <p>Kết quả:</p>
+    <pre class="language-javascript"><code>{
+  "me": {
+    "name": "Luke Skywalker"
+  }
+}</code></pre>
+    <p><em><a title=" Ng&ocirc;n Ngữ Truy Vấn GraphQL"
+          href="https://dhdquang.github.io/learn/graphql/truyvan-graphql.html">&gt;&gt; Phần tiếp theo l&agrave;
+          t&igrave;m hiểu về Ng&ocirc;n Ngữ Truy Vấn GraphQL</a></em></p>
   </div>
 </body>
 
